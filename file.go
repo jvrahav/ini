@@ -467,7 +467,7 @@ func (f *File) writeToBuffer(indent string) (*bytes.Buffer, error) {
 				} else if len(strings.TrimSpace(val)) != len(val) {
 					val = `"` + val + `"`
 				}
-				if _, err := buf.WriteString(equalSign + "  " + val + LineBreak); err != nil {
+				if _, err := buf.WriteString(equalSign + val + LineBreak); err != nil {
 					return false, err
 				}
 				return false, nil
