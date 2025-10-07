@@ -481,6 +481,9 @@ func (f *File) writeToBuffer(indent string) (*bytes.Buffer, error) {
 			}
 
 			for _, val := range shadows {
+				if len(indent) > 0 && sname != DefaultSection {
+					buf.WriteString(indent)
+				}
 				exitLoop, err := writeKeyValue(val)
 				if err != nil {
 					return nil, err
